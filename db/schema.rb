@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_151220) do
+ActiveRecord::Schema.define(version: 2019_11_28_153318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "buckets", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tweet_buckets", force: :cascade do |t|
+    t.integer "tweet_id"
+    t.bigint "bucket_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bucket_id"], name: "index_tweet_buckets_on_bucket_id"
+    t.index ["tweet_id"], name: "index_tweet_buckets_on_tweet_id", unique: true
+  end
+
+  create_table "tweets", id: :string, force: :cascade do |t|
+    t.string "domain"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -22,4 +44,5 @@ ActiveRecord::Schema.define(version: 2019_11_28_151220) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "tweet_buckets", "buckets"
 end
