@@ -26,4 +26,9 @@ class ApplicationController < ActionController::API
   def logged_in
     !!@current_user
   end
+
+  def mastodon
+    client = Mastodon::REST::Client.new(base_url: 'https://social.coop', bearer_token: params['code'])
+    puts client.home_timeline
+  end
 end
