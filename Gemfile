@@ -45,3 +45,7 @@ gem "active_model_serializers", "~> 0.10.10"
 gem "figaro"
 
 gem "jwt", "~> 2.2"
+
+gem 'mastodon-api', require: 'mastodon'
+gem 'omniauth-mastodon', path: './forked_gems/omniauth-mastodon'
+gem 'omniauth'
