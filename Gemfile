@@ -47,5 +47,6 @@ gem "figaro"
 gem "jwt", "~> 2.2"
 
 gem 'mastodon-api', require: 'mastodon'
-gem 'omniauth-mastodon', path: './forked_gems/omniauth-mastodon'
+gem 'omniauth-mastodon', :github => 'idmyn/omniauth-mastodon'
+
 gem 'omniauth'

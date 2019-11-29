@@ -1,5 +1,6 @@
-PATH
-  remote: forked_gems/omniauth-mastodon
+GIT
+  remote: https://github.com/idmyn/omniauth-mastodon.git
+  revision: 2376cef5c802c5ac7f62c6b1ba0aef5f9145a226
   specs:
     omniauth-mastodon (0.9.3)
       i18n (~> 0.7)
